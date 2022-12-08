@@ -5,10 +5,10 @@
 
 <h1> {{ detail.title }} </h1>
 
-<p> {{ detail.text }}</p>
+<p> {{ detail.text|linebreaksbr }}</p>
 
-<p> Author: {{ detail.autho }} at <strong>{{detail.pub_date}}</strong></p>
-<p> </p>
+<p> Author: {{ detail.autho }}</p>
+<time class="date"> {{detail.pub_date}} </time>
 
 {% endblock %}
 
