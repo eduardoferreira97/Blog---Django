@@ -1,6 +1,14 @@
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
 <h1> {{ detail.title }} </h1>
 
 <p> {{ detail.text }}</p>
 
-<p> {{ detail.autho }}</p>
+<p> Author: {{ detail.autho }} at <strong>{{detail.pub_date}}</strong></p>
+<p> </p>
+
+{% endblock %}
 

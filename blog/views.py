@@ -10,3 +10,7 @@ def index(request):
 def detail(request,pk):
     post_info = get_object_or_404(Post,pk=pk)
     return render(request, 'blog/detail.html',{'detail':post_info})
+
+def post(request,pk):
+    post_detail = get_object_or_404(Post,pk=pk)
+    return render(request, 'blog/post.html',{'post':post_detail})
