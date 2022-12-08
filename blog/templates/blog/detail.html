@@ -2,13 +2,20 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<article class="post">
+    <aside class="actions">
+        <a class="btn btn-secondary" href="{% url 'blog:edit' pk=detail.pk %}">
+            Edit
+        </a>
+    </aside>
+    {% if detail.published_date %}
+        <time class="date">
+            {{ detail.pub_date }}
+        </time>
+    {% endif %}
+    <h2>{{ detail.title }}</h2>
+    <p>{{ detail.text|linebreaksbr }}</p>
 
-<h1> {{ detail.title }} </h1>
-
-<p> {{ detail.text|linebreaksbr }}</p>
-
-<p> Author: {{ detail.autho }}</p>
-<time class="date"> {{detail.pub_date}} </time>
 
 {% endblock %}
 

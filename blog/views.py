@@ -27,3 +27,17 @@ def post(request):
     else:
         form = PostForm()
     return render(request, 'blog/post.html', {'form': form})
+
+def edit(request,pk):
+
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.pub_date = timezone.now()
+            post.save()
+            return redirect('blog:detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'blog/post.html', {'form': form})
