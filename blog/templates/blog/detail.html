@@ -8,13 +8,12 @@
             Edit
         </a>
     </aside>
-    {% if detail.published_date %}
         <time class="date">
             {{ detail.pub_date }}
         </time>
-    {% endif %}
     <h2>{{ detail.title }}</h2>
     <p>{{ detail.text|linebreaksbr }}</p>
+    <p>Author: <strong>{{detail.autho}}</strong></p>
 
 
 {% endblock %}
